@@ -8,7 +8,7 @@ interface TileProps {
 function Tile({ number, image }: TileProps) {
   return (
     <div className={`tile ${number % 2 === 0 ? "black" : "white"}-tile`}>
-        <img src={image}  className="chess-piece"/>
+       {image && <div style={{backgroundImage: `url(${image})`}} className="chess-piece"></div>}
     </div>
   );
 }
