@@ -1,32 +1,11 @@
 import { useRef, useState } from "react";
 import Tile from "../Tile/Tile";
 import Referee from "../../referee/referee";
+import { type Piece, TeamType, PieceType } from "../../types/chess-types";
 import "./Chessboard.css";
 
 const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
 const verticalAxis = ["1", "2", "3", "4", "5", "6", "7", "8"];
-
-interface Piece {
-  image: string;
-  x: number;
-  y: number;
-  type: PieceType;
-  team: TeamType;
-}
-
-export enum TeamType {
-  OPPONENT,
-  OUR,
-}
-
-export enum PieceType {
-  PAWN,
-  ROOK,
-  KNIGHT,
-  BISHOP,
-  QUEEN,
-  KING,
-}
 
 const initialBoardState: Piece[] = [];
 
@@ -183,18 +162,17 @@ function Chessboard() {
               x,
               y,
               p.type,
-              p.team
+              p.team,
+              value
             );
 
             if (validMove) {
               p.x = x;
               p.y = y;
-            }
-
-            else{
-                activePiece.style.position = "relative"; 
-                activePiece.style.removeProperty('top'); 
-                activePiece.style.removeProperty('left'); 
+            } else {
+              activePiece.style.position = "relative";
+              activePiece.style.removeProperty("top");
+              activePiece.style.removeProperty("left");
             }
           }
           return p;
