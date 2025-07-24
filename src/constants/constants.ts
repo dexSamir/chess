@@ -7,12 +7,12 @@ export function samePosition(p1: Position, p2: Position) {
   return p1.x === p2.x && p1.y === p2.y;
 }
 
-export enum TeamType {
+export const enum TeamType {
   OPPONENT,
   OUR,
 }
 
-export enum PieceType {
+export const enum PieceType {
   PAWN,
   ROOK,
   KNIGHT,
