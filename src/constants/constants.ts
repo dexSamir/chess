@@ -7,19 +7,23 @@ export function samePosition(p1: Position, p2: Position) {
   return p1.x === p2.x && p1.y === p2.y;
 }
 
-export const enum TeamType {
-  OPPONENT,
-  OUR,
-}
+export const TeamType = {
+  OPPONENT: "OPPONENT",
+  OUR: "OUR",
+} as const;
 
-export const enum PieceType {
-  PAWN,
-  ROOK,
-  KNIGHT,
-  BISHOP,
-  QUEEN,
-  KING,
-}
+export type TeamType = (typeof TeamType)[keyof typeof TeamType];
+
+export const PieceType = {
+  PAWN: "PAWN",
+  ROOK: "ROOK",
+  KNIGHT: "KNIGHT",
+  BISHOP: "BISHOP",
+  QUEEN: "QUEEN",
+  KING: "KING",
+} as const;
+
+export type PieceType = (typeof PieceType)[keyof typeof PieceType];
 
 export interface Piece {
   image: string;
